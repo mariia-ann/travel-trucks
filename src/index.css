@@ -8,11 +8,19 @@
   --color-gray-light: #DADDE1;
   --color-badges: #F2F4F7;
   --color-inputs: #F7F7F7;
-  --color-white: #FFFFF;
+  --color-white: #FFFFFF;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../src/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   background-color: var(--color-white);
   color: var(--color-main);
@@ -51,6 +59,7 @@ button {
   background-color: var(--color-button);
   border-radius: 200px;
   border: none;
+  cursor: pointer;
 }
 
 button:hover {
