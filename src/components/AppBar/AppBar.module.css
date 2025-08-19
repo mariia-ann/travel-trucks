@@ -1,0 +1,29 @@
+.header {
+  position: relative;
+  padding: 0 64px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  left: 64px;
+}
+
+@media screen and (min-width: 460px) and (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    position: static;
+  }
+}

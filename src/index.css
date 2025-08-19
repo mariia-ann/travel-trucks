@@ -24,6 +24,7 @@ body {
   line-height: 1.5;
   background-color: var(--color-white);
   color: var(--color-main);
+  font-size: 16px;
 }
 
 h1,
