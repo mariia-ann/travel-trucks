@@ -1,8 +1,10 @@
+import HeroSection from "../components/HeroSection/HeroSection.jsx";
+
 const HomePage = () => {
   return (
-    <div>
-      <p>Home</p>
-    </div>
+    <>
+      <HeroSection />
+    </>
   );
 };
 
