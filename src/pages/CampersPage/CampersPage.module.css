@@ -1,0 +1,8 @@
+.section {
+  padding: 48px 0 52px;
+}
+
+.block {
+  display: flex;
+  gap: 64px;
+}
