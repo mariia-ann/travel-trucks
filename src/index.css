@@ -49,7 +49,7 @@ img {
   max-width: 100%;
 }
 
-button {
+/* button {
   padding: 16px;
   min-width: 166px;
   color: var(--color-white);
@@ -66,4 +66,4 @@ button {
 
 button:hover {
   background-color: var(--color-button-hover);
-}
+} */

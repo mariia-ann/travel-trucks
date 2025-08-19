@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const filtersInitialState = {
   location: "",
   AC: false,
-  transmission: false,
+  transmission: "",
   kitchen: false,
   TV: false,
   bathroom: false,

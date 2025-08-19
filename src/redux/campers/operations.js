@@ -11,7 +11,7 @@ export const fetchCampers = createAsyncThunk(
         params: {
           location: filters.location || undefined,
           AC: filters.AC ? "true" : undefined,
-          transmission: filters.transmission ? "true" : undefined,
+          transmission: filters.transmission ? "automatic" : undefined,
           kitchen: filters.kitchen ? "true" : undefined,
           TV: filters.TV ? "true" : undefined,
           bathroom: filters.bathroom ? "true" : undefined,
@@ -20,6 +20,9 @@ export const fetchCampers = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
+      if (e.response && e.response.status === 404) {
+        return [];
+      }
       return thunkAPI.rejectWithValue(e.message);
     }
   }

@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import AppBar from "./AppBar/AppBar.jsx";
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
-const CampersPage = lazy(() => import("../pages/CampersPage.jsx"));
+const CampersPage = lazy(() => import("../pages/CampersPage/CampersPage.jsx"));
 const CamperDetailsPage = lazy(() => import("../pages/CamperDetailsPage.jsx"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage.jsx"));
 
