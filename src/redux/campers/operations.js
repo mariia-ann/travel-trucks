@@ -18,6 +18,11 @@ export const fetchCampers = createAsyncThunk(
           TV: filters.TV ? "true" : undefined,
           bathroom: filters.bathroom ? "true" : undefined,
           form: filters.form || undefined,
+          radio: filters.radio ? "true" : undefined,
+          refrigerator: filters.refrigerator ? "true" : undefined,
+          microwave: filters.microwave ? "true" : undefined,
+          gas: filters.gas ? "true" : undefined,
+          water: filters.water ? "true" : undefined,
         },
       });
       return response.data;
