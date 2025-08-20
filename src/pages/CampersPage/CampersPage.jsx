@@ -33,8 +33,6 @@ const CampersPage = () => {
     dispatch(fetchCampers({ page: page + 1, filters }));
   };
 
-  console.log(campers);
-
   return (
     <section className={style.section}>
       <Container>

@@ -5,8 +5,8 @@ import IconLogo from "../../assets/icons/logo.svg?react";
 const AppBar = () => {
   return (
     <header className={style.header}>
-      <IconLogo className={style.logo} />
-      <Navigation />
+        <IconLogo className={style.logo} />
+        <Navigation />
     </header>
   );
 };

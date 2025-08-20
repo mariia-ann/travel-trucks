@@ -12,6 +12,7 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   items: [],
+  currentCamper: {},
   total: 0,
   page: 1,
   isLoading: false,
@@ -65,7 +66,7 @@ const campersSlice = createSlice({
       .addCase(fetchCamperById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
+        state.currentCamper = action.payload;
       })
       .addCase(fetchCamperById.rejected, handleRejected);
   },
