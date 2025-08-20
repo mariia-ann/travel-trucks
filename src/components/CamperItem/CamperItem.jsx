@@ -1,0 +1,61 @@
+import style from "./CamperItem.module.css";
+import IconHeart from "../../assets/icons/heart.svg?react";
+import IconStar from "../../assets/icons/star.svg?react";
+import IconLocation from "../../assets/icons/map.svg?react";
+import CamperEquipment from "../CamperEquipment/CamperEquipment";
+import { Link } from "react-router-dom";
+
+const CamperItem = ({ camper }) => {
+  const averageRating =
+    camper.reviews.reduce((sum, review) => sum + review.reviewer_rating, 0) /
+    camper.reviews.length;
+
+  return (
+    <div className={style.item}>
+      <img
+        src={camper.gallery[0].thumb}
+        alt={camper.name}
+        className={style.image}
+      />
+      <div className={style.infoBlock}>
+        <div>
+          <div className={style.generalBlock}>
+            <h2 className={style.general}>{camper.name}</h2>
+            <div className={style.price}>
+              <p className={style.general}>€{camper.price}.00</p>
+              <IconHeart />
+            </div>
+          </div>
+
+          <div className={style.reviewLocationBlock}>
+            <div className={style.reviewLocationFlex}>
+              <IconStar className={style.iconStar} />
+              <p>
+                {averageRating}({camper.reviews.length} Reviews)
+              </p>
+            </div>
+            <div className={style.reviewLocationFlex}>
+              <IconLocation className={style.iconStar} />
+              <p>{camper.location}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={style.descriptionBlock}>
+          <p className={style.description}>{camper.description}</p>
+        </div>
+
+        <div className={style.propertiesBlock}>
+          <CamperEquipment camper={camper} />
+        </div>
+        <div>
+          <Link to={`/catalog/${camper.id}`} className={style.button}>
+            Show more
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CamperItem;
