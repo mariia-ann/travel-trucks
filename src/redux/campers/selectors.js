@@ -1,4 +1,5 @@
 export const selectCampers = (state) => state.campers.items;
+export const selectCamper = (state) => state.campers.currentCamper;
 export const selectTotalCampers = (state) => state.campers.total;
 export const selectPage = (state) => state.campers.page;
 
