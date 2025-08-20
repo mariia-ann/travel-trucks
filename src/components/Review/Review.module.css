@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.photo {
+  border-radius: 60px;
+  background-color: var(--color-badges);
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  color: var(--color-button);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review {
+    line-height: 1.5;
+    color: var(--color-text);
+}
+.stars {
+    display: flex;
+    gap: 4px;
+}
+.iconStar {
+  fill: var(--color-rating);
+}
+
