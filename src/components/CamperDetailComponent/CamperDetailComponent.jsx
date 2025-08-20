@@ -11,87 +11,95 @@ import BookingForm from "../BookingForm/BookingForm.jsx";
 const CamperDetailComponent = ({ camper }) => {
   const [openTab, setOpenTab] = useState("Features");
 
-  if (!camper || !camper.reviews) {
-    return <p>Loading...</p>; // або спінер
+  if (!camper || !camper.reviews || !camper.gallery) {
+    return <p>Loading...</p>;
   }
 
   const tabs = [
-  { name: "Features", content: <FeaturesContent camper={camper} /> },
-  { name: "Reviews", content: <ReviewsContent camper={camper} /> },
-];
+    { name: "Features", content: <FeaturesContent camper={camper} /> },
+    { name: "Reviews", content: <ReviewsContent camper={camper} /> },
+  ];
 
   const averageRating =
-    camper.reviews.reduce((sum, review) => sum + review.reviewer_rating, 0) /
-    camper.reviews.length;
+    camper.reviews.length > 0
+      ? camper.reviews.reduce(
+          (sum, review) => sum + review.reviewer_rating,
+          0
+        ) / camper.reviews.length
+      : 0;
 
   const images = camper.gallery;
 
   return (
     <section className={style.section}>
       <Container>
-        <div className={style.infoBlock}>
-          <div className={style.generalBlock}>
-            <h2 className={style.general}>{camper.name}</h2>
+        {!camper || !camper.reviews ? (
+          <p>Loading...</p>
+        ) : (
+          <div className={style.infoBlock}>
+            <div className={style.generalBlock}>
+              <h2 className={style.general}>{camper.name}</h2>
 
-            <div className={style.reviewLocationBlock}>
-              <div className={style.reviewLocationFlex}>
-                <IconStar className={style.iconStar} />
-                <p>
-                  {averageRating}({camper.reviews.length} Reviews)
-                </p>
+              <div className={style.reviewLocationBlock}>
+                <div className={style.reviewLocationFlex}>
+                  <IconStar className={style.iconStar} />
+                  <p>
+                    {averageRating}({camper.reviews.length} Reviews)
+                  </p>
+                </div>
+                <div className={style.reviewLocationFlex}>
+                  <IconLocation className={style.iconStar} />
+                  <p>{camper.location}</p>
+                </div>
               </div>
-              <div className={style.reviewLocationFlex}>
-                <IconLocation className={style.iconStar} />
-                <p>{camper.location}</p>
-              </div>
+
+              <p className={style.general}>€{camper.price}.00</p>
             </div>
 
-            <p className={style.general}>€{camper.price}.00</p>
-          </div>
-
-          <div className={style.imagesBlock}>
-            {images.map((image) => (
-              <img
-              key={image.thumb}
-                src={image.thumb}
-                alt={camper.name}
-                className={style.image}
-              />
-            ))}
-          </div>
-
-          <div className={style.descriptionBlock}>
-            <p>{camper.description}</p>
-          </div>
-
-          <div className={style.tabBlock}>
-            <div className={style.tabButtons}>
-              {tabs.map((tab) => (
-                <button
-                  key={tab.name}
-                  onClick={() => setOpenTab(tab.name)}
-                  className={clsx(style.tabButton, {
-                    [style.active]: openTab === tab.name,
-                  })}
-                >
-                  {tab.name}
-                </button>
+            <div className={style.imagesBlock}>
+              {images.map((image) => (
+                <img
+                  key={image.thumb}
+                  src={image.thumb}
+                  alt={camper.name}
+                  className={style.image}
+                />
               ))}
             </div>
 
-            <div className={style.tabContentWrapper}>
-              {tabs.map(
-                (tab) =>
-                  openTab === tab.name && (
-                    <div key={tab.name} className={style.tabContent}>
-                      {tab.content}
-                      <BookingForm />
-                    </div>
-                  )
-              )}
+            <div className={style.descriptionBlock}>
+              <p>{camper.description}</p>
+            </div>
+
+            <div className={style.tabBlock}>
+              <div className={style.tabButtons}>
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.name}
+                    onClick={() => setOpenTab(tab.name)}
+                    className={clsx(style.tabButton, {
+                      [style.active]: openTab === tab.name,
+                    })}
+                  >
+                    {tab.name}
+                  </button>
+                ))}
+              </div>
+
+              <div className={style.tabContentWrapper}>
+                {tabs.map(
+                  (tab) =>
+                    openTab === tab.name && (
+                      <div key={tab.name} className={style.tabContent}>
+                        {tab.content}
+                        <BookingForm />
+                      </div>
+                    )
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </Container>
     </section>
   );

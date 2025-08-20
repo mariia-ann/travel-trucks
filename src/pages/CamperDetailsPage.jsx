@@ -13,13 +13,9 @@ const CamperDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCamperById(camperId));
-  }, [camperId]);
+  }, [camperId, dispatch]);
 
-  console.log(camper);
-  
-  return (
-    <CamperDetailComponent camper={camper} />
-  );
+  return <CamperDetailComponent camper={camper} />;
 };
 
 export default CamperDetailsPage;

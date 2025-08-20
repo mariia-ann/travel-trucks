@@ -25,11 +25,12 @@ export const fetchCampers = createAsyncThunk(
           water: filters.water ? "true" : undefined,
         },
       });
+
       return response.data;
     } catch (e) {
-      // if (e.response && e.response.status === 404) {
-      //   return { items: [], total: 0, page};
-      // }
+      if (e.response && e.response.status === 404) {
+        return { items: [], total: 0, page};
+      }
       return thunkAPI.rejectWithValue(e.message);
     }
   }

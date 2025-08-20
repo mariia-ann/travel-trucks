@@ -37,18 +37,23 @@ const CampersPage = () => {
     <section className={style.section}>
       <Container>
         <div className={style.block}>
-          <FilterBlock filters={filters}/>
-          {isLoading  && campers.length === 0 ? (
+          <FilterBlock filters={filters} />
+          {isLoading && campers.length === 0 ? (
             <p>Loading...</p>
+          ) : campers.length === 0 ? (
+            <p className={style.textSorry}>
+              Unfortunately, there are no campers matching your search. <br />
+              Please try different filters.
+            </p>
           ) : (
-            <>
-            <CampersList
-              campers={campers}
-              total={total}
-              onLoadMore={handleLoadMore}
-            />
-            {isLoadingMore && <p>Loading more...</p>}
-            </>
+            <div>
+              <CampersList
+                campers={campers}
+                total={total}
+                onLoadMore={handleLoadMore}
+              />
+              {isLoadingMore && <p>Loading more...</p>}
+            </div>
           )}
         </div>
       </Container>

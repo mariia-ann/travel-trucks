@@ -1,14 +1,19 @@
 .featuresWrapper {
   background-color: var(--color-inputs);
+  border-radius: 10px;
   padding: 44px;
   width: 631px;
+  height: 588px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .properties {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 .vehicleBlock {
