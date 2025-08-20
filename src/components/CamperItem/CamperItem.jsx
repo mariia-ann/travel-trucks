@@ -4,6 +4,7 @@ import IconStar from "../../assets/icons/star.svg?react";
 import IconLocation from "../../assets/icons/map.svg?react";
 import CamperEquipment from "../CamperEquipment/CamperEquipment";
 import { Link } from "react-router-dom";
+import { EquipmentListMin } from "../CamperEquipment/EquipmentList.jsx";
 
 const CamperItem = ({ camper }) => {
   const averageRating =
@@ -46,7 +47,7 @@ const CamperItem = ({ camper }) => {
         </div>
 
         <div className={style.propertiesBlock}>
-          <CamperEquipment camper={camper} />
+          <CamperEquipment camper={camper} list={EquipmentListMin} />
         </div>
         <div>
           <Link to={`/catalog/${camper.id}`} className={style.button}>

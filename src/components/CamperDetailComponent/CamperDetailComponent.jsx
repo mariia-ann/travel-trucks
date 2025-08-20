@@ -8,17 +8,18 @@ import FeaturesContent from "../FeaturesContent/FeaturesContent.jsx";
 import ReviewsContent from "../ReviewsContent/ReviewsContent.jsx";
 import BookingForm from "../BookingForm/BookingForm.jsx";
 
-const tabs = [
-  { name: "Features", content: <FeaturesContent /> },
-  { name: "Reviews", content: <ReviewsContent /> },
-];
-
 const CamperDetailComponent = ({ camper }) => {
   const [openTab, setOpenTab] = useState("Features");
 
   if (!camper || !camper.reviews) {
     return <p>Loading...</p>; // або спінер
   }
+
+  const tabs = [
+  { name: "Features", content: <FeaturesContent camper={camper} /> },
+  { name: "Reviews", content: <ReviewsContent camper={camper} /> },
+];
+
   const averageRating =
     camper.reviews.reduce((sum, review) => sum + review.reviewer_rating, 0) /
     camper.reviews.length;
