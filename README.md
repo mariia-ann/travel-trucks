@@ -25,12 +25,12 @@ npm run dev
 - **formik** – for form handling  
 - **clsx** – for conditional className management  
 - **modern-normalize** – for CSS normalization across browsers  
-
+- **react-datepicker**
 
 ## Author Information:
 
 Hello, my name is Mariia Soloshenko, and I am a Front-End Developer.  
-I have experience working with HTML, CSS, Tailwind, JavaScript, React, TypeScript and Node.js.  
+I have experience working with HTML, CSS, SCSS, Tailwind, JavaScript, React, TypeScript and Node.js.  
 
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/mariia-soloshenko/)
 
