@@ -1,5 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCampers } from "../../redux/campers/selectors.js";
+import {
+  selectCampers,
+  selectIsLoading,
+  selectIsLoadingMore,
+  selectPage,
+  selectTotalCampers,
+} from "../../redux/campers/selectors.js";
 import { useEffect } from "react";
 import { fetchCampers } from "../../redux/campers/operations.js";
 import { selectFilters } from "../../redux/filters/selectors.js";
@@ -12,12 +18,20 @@ import style from "./CampersPage.module.css";
 const CampersPage = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
+  const total = useSelector(selectTotalCampers);
+  const page = useSelector(selectPage);
 
   const filters = useSelector(selectFilters);
+  const isLoading = useSelector(selectIsLoading);
+  const isLoadingMore = useSelector(selectIsLoadingMore);
 
   useEffect(() => {
-    dispatch(fetchCampers(filters));
+    dispatch(fetchCampers({ page: 1, filters }));
   }, [dispatch, filters]);
+
+  const handleLoadMore = () => {
+    dispatch(fetchCampers({ page: page + 1, filters }));
+  };
 
   console.log(campers);
 
@@ -25,8 +39,19 @@ const CampersPage = () => {
     <section className={style.section}>
       <Container>
         <div className={style.block}>
-          <FilterBlock filters={filters} />
-          <CampersList campers={campers} />
+          <FilterBlock filters={filters}/>
+          {isLoading  && campers.length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+            <CampersList
+              campers={campers}
+              total={total}
+              onLoadMore={handleLoadMore}
+            />
+            {isLoadingMore && <p>Loading more...</p>}
+            </>
+          )}
         </div>
       </Container>
     </section>
