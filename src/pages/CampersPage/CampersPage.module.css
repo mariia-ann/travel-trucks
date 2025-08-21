@@ -4,6 +4,7 @@
 
 .block {
   display: flex;
+  flex-wrap: wrap;
   gap: 64px;
 }
 
