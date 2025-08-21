@@ -1,12 +1,15 @@
 import style from "./CamperItem.module.css";
 import IconHeart from "../../assets/icons/heart.svg?react";
+import IconHeartPressed from "../../assets/icons/heart-pressed.svg?react";
 import IconStar from "../../assets/icons/star.svg?react";
 import IconLocation from "../../assets/icons/map.svg?react";
 import CamperEquipment from "../CamperEquipment/CamperEquipment";
 import { Link } from "react-router-dom";
 import { EquipmentListMin } from "../CamperEquipment/EquipmentList.jsx";
 
-const CamperItem = ({ camper }) => {
+const CamperItem = ({ camper, favourites, toggleFavourite }) => {
+  const isFavourite = favourites.includes(String(camper.id));
+
   const averageRating =
     camper.reviews.reduce((sum, review) => sum + review.reviewer_rating, 0) /
     camper.reviews.length;
@@ -24,7 +27,9 @@ const CamperItem = ({ camper }) => {
             <h2 className={style.general}>{camper.name}</h2>
             <div className={style.price}>
               <p className={style.general}>€{camper.price}.00</p>
-              <IconHeart />
+              <button onClick={() => toggleFavourite(camper.id)} className={style.btnFavorite}>
+                {isFavourite ? <IconHeartPressed /> : <IconHeart />}
+              </button>
             </div>
           </div>
 
