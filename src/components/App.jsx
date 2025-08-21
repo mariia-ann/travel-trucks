@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import AppBar from "./AppBar/AppBar.jsx";
 import { Toaster } from "react-hot-toast";
+import Loader from "./Loader/Loader.jsx";
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 const CampersPage = lazy(() => import("../pages/CampersPage/CampersPage.jsx"));
@@ -13,7 +14,7 @@ const App = () => {
     <>
     <Toaster position="top-right" reverseOrder={false} />
       <AppBar />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CampersPage />} />
