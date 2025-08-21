@@ -7,6 +7,7 @@ import clsx from "clsx";
 import FeaturesContent from "../FeaturesContent/FeaturesContent.jsx";
 import ReviewsContent from "../ReviewsContent/ReviewsContent.jsx";
 import BookingForm from "../BookingForm/BookingForm.jsx";
+import Loader from "../Loader/Loader.jsx";
 
 const CamperDetailComponent = ({ camper }) => {
   const [openTab, setOpenTab] = useState("Features");
@@ -34,7 +35,7 @@ const CamperDetailComponent = ({ camper }) => {
     <section className={style.section}>
       <Container>
         {!camper || !camper.reviews ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <div className={style.infoBlock}>
             <div className={style.generalBlock}>

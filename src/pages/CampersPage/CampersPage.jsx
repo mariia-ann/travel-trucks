@@ -14,6 +14,7 @@ import FilterBlock from "../../components/FilterBlock/FilterBlock.jsx";
 import CampersList from "../../components/CampersList/CampersList.jsx";
 
 import style from "./CampersPage.module.css";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const CampersPage = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const CampersPage = () => {
         <div className={style.block}>
           <FilterBlock filters={filters} />
           {isLoading && campers.length === 0 ? (
-            <p>Loading...</p>
+            <Loader />
           ) : campers.length === 0 ? (
             <p className={style.textSorry}>
               Unfortunately, there are no campers matching your search. <br />
@@ -52,7 +53,7 @@ const CampersPage = () => {
                 total={total}
                 onLoadMore={handleLoadMore}
               />
-              {isLoadingMore && <p>Loading more...</p>}
+              {isLoadingMore && <Loader />}
             </div>
           )}
         </div>
