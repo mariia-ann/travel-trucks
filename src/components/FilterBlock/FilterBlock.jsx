@@ -12,6 +12,7 @@ import IconBathroom from "../../assets/icons/shower.svg?react";
 import IconVan from "../../assets/icons/grid-1x2.svg?react";
 import IconFully from "../../assets/icons/grid-2x2.svg?react";
 import IconAlcove from "../../assets/icons/grid-3x3.svg?react";
+import IconLocation from "../../assets/icons/map.svg?react";
 
 const vehicleTypes = [
   { key: "panelTruck", label: "Van", icon: <IconVan /> },
@@ -25,6 +26,16 @@ const equipmentFilters = [
   { key: "kitchen", label: "Kitchen", icon: <IconKitchen /> },
   { key: "TV", label: "TV", icon: <IconTV /> },
   { key: "bathroom", label: "Bathroom", icon: <IconBathroom /> },
+];
+
+const cities = [
+  { key: "kyiv", label: "Ukraine, Kyiv" },
+  { key: "poltava", label: "Ukraine, Poltava" },
+  { key: "dnipro", label: "Ukraine, Dnipro" },
+  { key: "odesa", label: "Ukraine, Odesa" },
+  { key: "kharkiv", label: "Ukraine, Kharkiv" },
+  { key: "sumy", label: "Ukraine, Sumy" },
+  { key: "lviv", label: "Ukraine, Lviv" },
 ];
 
 const FilterBlock = ({ filters }) => {
@@ -41,18 +52,27 @@ const FilterBlock = ({ filters }) => {
 
   return (
     <div className={style.block}>
-        {/* Доробити логіку по інпуту Location + додати іконку */}
+      {/* Доробити логіку по інпуту Location + додати іконку */}
       <label htmlFor="location" className={style.label}>
         Location
-        <input
-          id="location"
-          name="location"
-          type="text"
-          placeholder="City"
-          className={style.input}
-          value={localFilters.location}
-          onChange={(e) => handleLocalChange({ location: e.target.value })}
-        />
+        <div className={style.inputWrapper}>
+          <IconLocation className={`${style.icon} ${localFilters.location ? style.activeIcon : ""}`} />
+          <select
+            id="location"
+            value={localFilters.location || ""}
+            onChange={(e) => handleLocalChange({ location: e.target.value })}
+            className={`${style.inputLocation} ${
+              !localFilters.location ? style.placeholder : ""
+            }`}
+          >
+            <option value="">City</option>
+            {cities.map((c) => (
+              <option key={c.key} value={c.key}>
+                {c.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </label>
       <p className={style.subtitle}>Filters</p>
       <div className={style.vehicheBlock}>
@@ -95,7 +115,9 @@ const FilterBlock = ({ filters }) => {
           })}
         </div>
       </div>
-      <button onClick={handleSearch} className={style.button}>Search</button>
+      <button onClick={handleSearch} className={style.button}>
+        Search
+      </button>
     </div>
   );
 };

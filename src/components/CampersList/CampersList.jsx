@@ -1,9 +1,20 @@
 import style from "./CampersList.module.css";
 import CamperItem from "../CamperItem/CamperItem.jsx";
-import { useFavourites } from "../../hooks/useFavourites.js";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../../redux/favorites/slice.js";
 
 const CampersList = ({ campers, total, onLoadMore }) => {
-  const { favourites, toggleFavourite } = useFavourites();
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
+
+  const toggleFavourite = (id) => {
+    if (favorites.includes(id)) {
+      dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite(id));
+    }
+  };
+
   return (
     <div className={style.block}>
       <ul className={style.list}>
@@ -11,7 +22,7 @@ const CampersList = ({ campers, total, onLoadMore }) => {
           <li className={style.item} key={camper.id}>
             <CamperItem
               camper={camper}
-              favourites={favourites}
+              favourites={favorites}
               toggleFavourite={toggleFavourite}
             />
           </li>
