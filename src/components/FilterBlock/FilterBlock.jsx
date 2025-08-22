@@ -4,39 +4,9 @@ import style from "./FilterBlock.module.css";
 import { setFilters } from "../../redux/filters/slice.js";
 import ButtonFilter from "../ButtonFilter/ButtonFilter.jsx";
 
-import IconAC from "../../assets/icons/wind.svg?react";
-import IconAutomatic from "../../assets/icons/diagram.svg?react";
-import IconKitchen from "../../assets/icons/coffee.svg?react";
-import IconTV from "../../assets/icons/tv.svg?react";
-import IconBathroom from "../../assets/icons/shower.svg?react";
-import IconVan from "../../assets/icons/grid-1x2.svg?react";
-import IconFully from "../../assets/icons/grid-2x2.svg?react";
-import IconAlcove from "../../assets/icons/grid-3x3.svg?react";
 import IconLocation from "../../assets/icons/map.svg?react";
-
-const vehicleTypes = [
-  { key: "panelTruck", label: "Van", icon: <IconVan /> },
-  { key: "fullyIntegrated", label: "Fully Integrated", icon: <IconFully /> },
-  { key: "alcove", label: "Alcove", icon: <IconAlcove /> },
-];
-
-const equipmentFilters = [
-  { key: "AC", label: "AC", icon: <IconAC /> },
-  { key: "transmission", label: "Automatic", icon: <IconAutomatic /> },
-  { key: "kitchen", label: "Kitchen", icon: <IconKitchen /> },
-  { key: "TV", label: "TV", icon: <IconTV /> },
-  { key: "bathroom", label: "Bathroom", icon: <IconBathroom /> },
-];
-
-const cities = [
-  { key: "kyiv", label: "Ukraine, Kyiv" },
-  { key: "poltava", label: "Ukraine, Poltava" },
-  { key: "dnipro", label: "Ukraine, Dnipro" },
-  { key: "odesa", label: "Ukraine, Odesa" },
-  { key: "kharkiv", label: "Ukraine, Kharkiv" },
-  { key: "sumy", label: "Ukraine, Sumy" },
-  { key: "lviv", label: "Ukraine, Lviv" },
-];
+import { equipmentFilters, vehicleTypes } from "../CamperEquipment/EquipmentList.jsx";
+import { cities } from "../../constants/cities.js";
 
 const FilterBlock = ({ filters }) => {
   const dispatch = useDispatch();

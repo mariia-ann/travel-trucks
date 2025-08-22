@@ -9,6 +9,9 @@ import IconWater from "../../assets/icons/water-outline.svg?react";
 import IconFridge from "../../assets/icons/fridge-outline.svg?react";
 import IconRadio from "../../assets/icons/radios.svg?react";
 import IconPetrol from "../../assets/icons/petrol.svg?react";
+import IconVan from "../../assets/icons/grid-1x2.svg?react";
+import IconFully from "../../assets/icons/grid-2x2.svg?react";
+import IconAlcove from "../../assets/icons/grid-3x3.svg?react";
 
 
 export const EquipmentListMin = [
@@ -32,4 +35,18 @@ export const EquipmentListMax = [
     { key: "microwave", label: "Microwave", value: "true", icon: <IconMicrowave width="20px" height="20px" /> },
     { key: "gas", label: "Gas", value: "true", icon: <IconGas width="20px" height="20px" /> },
     { key: "water", label: "Water", value: "true", icon: <IconWater width="20px" height="20px" /> },
+];
+
+export const equipmentFilters = [
+  { key: "AC", label: "AC", icon: <IconAC /> },
+  { key: "transmission", label: "Automatic", icon: <IconAutomatic /> },
+  { key: "kitchen", label: "Kitchen", icon: <IconKitchen /> },
+  { key: "TV", label: "TV", icon: <IconTV /> },
+  { key: "bathroom", label: "Bathroom", icon: <IconBathroom /> },
+];
+
+export const vehicleTypes = [
+  { key: "panelTruck", label: "Van", icon: <IconVan /> },
+  { key: "fullyIntegrated", label: "Fully Integrated", icon: <IconFully /> },
+  { key: "alcove", label: "Alcove", icon: <IconAlcove /> },
 ];
