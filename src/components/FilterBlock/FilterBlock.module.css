@@ -17,7 +17,7 @@
   border-radius: 12px;
   background-color: var(--color-inputs);
   border: none;
-  color: var(--color-main)
+  color: var(--color-main);
 }
 
 .inputLocation {
@@ -35,7 +35,6 @@
   position: relative;
   display: flex;
   align-items: center;
-
 }
 
 .icon {
@@ -59,6 +58,7 @@
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 32px;
+  color: var(--color-text);
 }
 
 .vehicheBlock {
@@ -101,4 +101,19 @@
 
 .button:hover {
   background-color: var(--color-button-hover);
+}
+
+@media screen and (max-width: 1439.98px) {
+  .block {
+    max-width: 736px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .inputLocation {
+    width: 400px;
+  }
 }

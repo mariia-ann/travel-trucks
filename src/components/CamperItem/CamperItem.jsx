@@ -22,6 +22,7 @@ const CamperItem = ({ camper, favourites, toggleFavourite }) => {
         className={style.image}
       />
       <div className={style.infoBlock}>
+        <div className={style.infoWrapper}>
         <div>
           <div className={style.generalBlock}>
             <h2 className={style.general}>{camper.name}</h2>
@@ -54,12 +55,14 @@ const CamperItem = ({ camper, favourites, toggleFavourite }) => {
         <div className={style.propertiesBlock}>
           <CamperEquipment camper={camper} list={EquipmentListMin} />
         </div>
+        </div>
         <div>
           <Link to={`/catalog/${camper.id}`} className={style.button}>
             Show more
           </Link>
         </div>
       </div>
+      
     </div>
   );
 };
