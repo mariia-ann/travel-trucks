@@ -52,11 +52,14 @@ const FilterBlock = ({ filters }) => {
 
   return (
     <div className={style.block}>
-      {/* Доробити логіку по інпуту Location + додати іконку */}
       <label htmlFor="location" className={style.label}>
         Location
         <div className={style.inputWrapper}>
-          <IconLocation className={`${style.icon} ${localFilters.location ? style.activeIcon : ""}`} />
+          <IconLocation
+            className={`${style.icon} ${
+              localFilters.location ? style.activeIcon : ""
+            }`}
+          />
           <select
             id="location"
             value={localFilters.location || ""}
@@ -115,9 +118,11 @@ const FilterBlock = ({ filters }) => {
           })}
         </div>
       </div>
-      <button onClick={handleSearch} className={style.button}>
-        Search
-      </button>
+      <div>
+        <button onClick={handleSearch} className={style.button}>
+          Search
+        </button>
+      </div>
     </div>
   );
 };

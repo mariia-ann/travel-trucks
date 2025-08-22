@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import AppBar from "./AppBar/AppBar.jsx";
 import { Toaster } from "react-hot-toast";
 import Loader from "./Loader/Loader.jsx";
+import ScrollToTop from "./ScrollToTop/ScrollToTop.jsx";
 
 const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 const CampersPage = lazy(() => import("../pages/CampersPage/CampersPage.jsx"));
@@ -14,6 +15,7 @@ const App = () => {
     <>
     <Toaster position="top-right" reverseOrder={false} />
       <AppBar />
+      <ScrollToTop />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

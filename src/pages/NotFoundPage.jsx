@@ -1,6 +1,8 @@
+import NotFoundComponent from "../components/NotFoundComponent/NotFoundComponent.jsx";
+
 const NotFoundPage = () => {
   return (
-    <div>NotFoundPage</div>
+    <NotFoundComponent />
   )
 }
 

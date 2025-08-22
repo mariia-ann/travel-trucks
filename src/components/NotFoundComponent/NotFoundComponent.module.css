@@ -1,0 +1,35 @@
+.section {
+  padding: 64px 0;
+}
+.title {
+  text-transform: uppercase;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 16px;
+  width: 166px;
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  background-color: var(--color-button);
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-button-hover);
+}

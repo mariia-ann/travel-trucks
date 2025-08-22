@@ -13,7 +13,7 @@ const CamperDetailComponent = ({ camper }) => {
   const [openTab, setOpenTab] = useState("Features");
 
   if (!camper || !camper.reviews || !camper.gallery) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   const tabs = [
