@@ -1,10 +1,10 @@
 import { Formik, Field, Form } from "formik";
 import style from "./BookingForm.module.css";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
+import BookingDate from "./BookingDate.jsx";
 
 const BookingSchema = Yup.object().shape({
   name: Yup.string()
@@ -21,7 +21,9 @@ const BookingForm = () => {
   return (
     <div className={style.formWrapper}>
       <h3 className={style.title}>Book your campervan now</h3>
-      <p className={style.text}>Stay connected! We are always ready to help you.</p>
+      <p className={style.text}>
+        Stay connected! We are always ready to help you.
+      </p>
       <Formik
         initialValues={{
           name: "",
@@ -50,14 +52,7 @@ const BookingForm = () => {
               className={style.field}
             />
 
-            <DatePicker
-              selected={date}
-              onChange={(val) => setDate(val)}
-              dateFormat="dd/MM/yyyy"
-              placeholderText="Booking date*"
-              className={style.field}
-              minDate={new Date()}
-            />
+            <BookingDate />
 
             <Field
               name="comment"

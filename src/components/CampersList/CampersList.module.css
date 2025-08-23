@@ -11,10 +11,12 @@
 .item {
   max-width: 888px;
   padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--color-gray-light);
 }
 
 .btnBlock {
-  margin: 0 auto;
+  margin: 40px auto 0;
 }
 .loadMore {
   border-radius: 200px;
@@ -34,8 +36,8 @@
 }
 
 @media screen and (max-width: 1439.98px) {
-.item {
-  max-width: 736px;
-  padding: 24px;
-}
+  .item {
+    max-width: 736px;
+    padding: 24px;
+  }
 }
