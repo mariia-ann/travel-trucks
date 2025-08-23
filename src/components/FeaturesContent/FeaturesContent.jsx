@@ -1,3 +1,5 @@
+import { camelToWords } from "../../utils/camelToWords.js";
+import { normalizeUnits } from "../../utils/normalizeUnits.js";
 import CamperEquipment from "../CamperEquipment/CamperEquipment.jsx";
 import { EquipmentListMax } from "../CamperEquipment/EquipmentList.jsx";
 import style from "./FeaturesContent.module.css";
@@ -15,23 +17,23 @@ const FeaturesContent = ({ camper }) => {
           <ul className={style.detailList}>
             <li className={style.detailItem}>
               <p>Form</p>
-              <p>{camper.form}</p>
+              <p>{camelToWords(camper.form)}</p>
             </li>
             <li className={style.detailItem}>
               <p>Length</p>
-              <p>{camper.length}</p>
+              <p>{normalizeUnits(camper.length)}</p>
             </li>
             <li className={style.detailItem}>
               <p>Width</p>
-              <p>{camper.width}</p>
+              <p>{normalizeUnits(camper.width)}</p>
             </li>
             <li className={style.detailItem}>
               <p>Height</p>
-              <p>{camper.height}</p>
+              <p>{normalizeUnits(camper.height)}</p>
             </li>
             <li className={style.detailItem}>
               <p>Tank</p>
-              <p>{camper.tank}</p>
+              <p>{normalizeUnits(camper.tank)}</p>
             </li>
             <li className={style.detailItem}>
               <p>Consumption</p>
